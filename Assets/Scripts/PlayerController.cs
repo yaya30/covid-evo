@@ -26,7 +26,7 @@ public class PlayerController : MonoBehaviour
             m_CurrentPos = m_Range;
         }
         else if(m_CurrentPos < - m_Range){
-            m_CurrentPos = m_Range;
+            m_CurrentPos = -m_Range;
         }
         return m_CurrentPos;
     }
