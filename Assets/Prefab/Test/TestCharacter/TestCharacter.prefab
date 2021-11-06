@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 516227529}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.01, y: 0.36, z: 0.446}
+  m_LocalPosition: {x: 0, y: 0.45, z: 0.446}
   m_LocalScale: {x: 0.4, y: 0.26, z: 0.55}
   m_Children: []
   m_Father: {fileID: 3423083891755222362}
@@ -109,7 +109,7 @@ GameObject:
   - component: {fileID: -5373117289590767978}
   - component: {fileID: 225348132}
   - component: {fileID: 183343691}
-  - component: {fileID: 183343685}
+  - component: {fileID: 8261013409830331223}
   m_Layer: 0
   m_Name: TestCharacter
   m_TagString: Untagged
@@ -206,7 +206,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: f5aff6e724ab02c44ac5ab430b794fa3, type: 3}
+  m_Actions: {fileID: -944628639613478452, guid: 795e8a61acbd64633adf92284e1b68c2, type: 3}
   m_NotificationBehavior: 2
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
@@ -221,63 +221,19 @@ MonoBehaviour:
   m_ActionEvents:
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: d6dc517e-384e-4d08-9c1a-cee76b022930
-    m_ActionName: Player/Move[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
+    m_ActionId: 6f4473bf-4729-4858-88db-54eb57870f73
+    m_ActionName: Controls/Movement[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d,/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow]
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: 0292e561-7543-479d-a2b8-2fc1605246e6
-    m_ActionName: Player/Look[/Mouse/delta,/Pen/delta]
+    m_ActionId: 9a40bf69-bdd7-4d1a-9119-b58f4b580d6a
+    m_ActionName: Controls/Aim[/Mouse/position]
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: 11aa3ccc-1370-438f-b09f-9ccd5912645f
-    m_ActionName: Player/Fire[/Mouse/leftButton,/Keyboard/space]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 56da7158-44bc-4873-9edf-154b75e1d072
-    m_ActionName: Player/Player
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: c31ca40d-bc1d-4ac1-96f3-3b275e3fe067
-    m_ActionName: UI/Navigate[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 9ce8d599-d290-4ff7-98c0-f7941672e63a
-    m_ActionName: UI/Submit[/Keyboard/enter]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 1ed64210-ee97-49fa-8e7f-1b4d121c7efb
-    m_ActionName: UI/Cancel[/Keyboard/escape]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 65b90fbb-bb07-4682-b814-d7f6594db827
-    m_ActionName: UI/Point[/Mouse/position,/Pen/position]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: c2a6ee89-26ed-454f-ae0e-24ec37813841
-    m_ActionName: UI/Click[/Mouse/leftButton,/Pen/tip]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 34aa3817-1a61-44be-9d1a-a557f81f4bff
-    m_ActionName: UI/ScrollWheel[/Mouse/scroll]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 78f26ff2-18eb-49bc-8d3b-691d989e6423
-    m_ActionName: UI/MiddleClick[/Mouse/middleButton]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: b0011d6e-a936-44e4-b4cb-ffee046e312b
-    m_ActionName: UI/RightClick[/Mouse/rightButton]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 9d467b63-24ca-4592-b445-326db353be1b
-    m_ActionName: UI/TrackedDevicePosition
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 06aa07f7-70d9-4a90-8bfe-c98057ea2017
-    m_ActionName: UI/TrackedDeviceOrientation
+    m_ActionId: 1c78d309-003b-4a40-b8c8-7d8c1ccfd21f
+    m_ActionName: Controls/Shoot[/Mouse/rightButton,/Keyboard/space]
   m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: Keyboard&Mouse
-  m_DefaultActionMap: Player
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Controls
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!143 &183343691
@@ -298,7 +254,7 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &183343685
+--- !u!114 &8261013409830331223
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -307,10 +263,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2298943733154106824}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a6e436043d7eb4fcbaeaae895ae3c41c, type: 3}
+  m_Script: {fileID: 11500000, guid: ef4d5c7e6c7814dcf9789fd9d75dc68d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   playerSpeed: 5
   gravityValue: -9.81
   shootSpeed: 5
-  spitPrefab: {fileID: 0}
+  spitPrefab: {fileID: 301678319190260019, guid: fee06ed6ad0ed4afa8936f19063289ea, type: 3}
