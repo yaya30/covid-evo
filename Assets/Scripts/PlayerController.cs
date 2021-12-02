@@ -15,6 +15,22 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private GameObject spitPrefab;
 
+    // about healthbar 
+    //public int maxHealth = 100;
+    //public int health;
+    //public int currentHealth;
+
+    public float health, maxHealth;
+        //maxHealth;
+    public HealthBar healthBar;
+
+
+    //public HealthBar healthBar;
+
+   
+
+    //public HealthBar healthBar;
+
     //[SerializeField] private float m_ShootSpeed = 2f;
     //[SerializeField] private GameObject m_SpitOriginal, m_ShootPoint;
 
@@ -28,6 +44,7 @@ public class PlayerController : MonoBehaviour
     private CharacterController controller;
     private PlayerControls playerControls;
     private PlayerInput playerInput;
+
 
 
     private void Awake()
@@ -49,13 +66,41 @@ public class PlayerController : MonoBehaviour
     }
 
 
+    // init healthbar game 
+    /*void Start()
+    {
+        currentHealth = maxHealth;
+        healthBar = new HealthBar();
+        healthBar.SetMaxHealth(maxHealth);
+    }*/
+
+    // about health bar
+    public void TakeDamage()
+    {
+        // Use your own damage handling code, or this example one.
+        //health -= Mathf.Min(Random.value, health / 4f);
+        Debug.Log("etat santé dans TakeDamage= " + health);
+        health = health -0.005f;
+        
+        healthBar.UpdateHealthBar();
+    }
+
     void Update()
     {
         HandleInput();
         HandleMovement();
         HandleRotation();
         HandleShoot();
+
+        // use space button to test healthbar
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Debug.Log("etat santé= " + health);
+            TakeDamage();
+        }
     }
+
+  
 
     void HandleInput()
     {
