@@ -15,6 +15,8 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private GameObject spitPrefab;
 
+    [SerializeField] private ParticleSystem collectParticle = null;
+
     //[SerializeField] private float m_ShootSpeed = 2f;
     //[SerializeField] private GameObject m_SpitOriginal, m_ShootPoint;
 
@@ -90,6 +92,7 @@ public class PlayerController : MonoBehaviour
     {
         if (shoot)
         {
+            Collect();
             GameObject spitClone = Instantiate(spitPrefab, transform.position, transform.rotation);
             Rigidbody rb = spitClone.GetComponent<Rigidbody>();
             rb.velocity = spitClone.transform.forward * shootSpeed;
@@ -109,14 +112,9 @@ public class PlayerController : MonoBehaviour
         Vector3 heightCorrectedPoint = new Vector3(lookPoint.x, transform.position.y, lookPoint.z);
         transform.LookAt(heightCorrectedPoint);
     }
-}
 
-/*private float BorderPlayer( float m_CurrentPos, float m_Range){
-        if(m_CurrentPos > m_Range){
-            m_CurrentPos = m_Range;
-        }
-        else if(m_CurrentPos < - m_Range){
-            m_CurrentPos = -m_Range;
-        }
-        return m_CurrentPos;
-    }*/
+    private void Collect()
+    {
+        collectParticle.Play();
+    }
+}
