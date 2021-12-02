@@ -130,11 +130,6 @@ public class PlayerController : MonoBehaviour
         }
         return m_CurrentPos;
     }
-}
-
-
-
-
     private void Collect()
     {
         collectParticle.Play();
