@@ -8,6 +8,7 @@ public class Ennemy : MonoBehaviour
     private Vector3 m_CurrentPos;
     public float m_Speed = 20f;
     public GameObject m_Player;
+    public float damage;
     void Start()
     {
        m_Player =  GameObject.FindWithTag("Player");
@@ -17,7 +18,22 @@ public class Ennemy : MonoBehaviour
     void Update()
     {
         m_CurrentPos = transform.position;
-        Vector3 diff = m_Player.transform.position - m_CurrentPos;
-        transform.Translate(diff * Time.deltaTime * m_Speed );
+        if(m_Player !=null){
+            Vector3 diff = m_Player.transform.position - m_CurrentPos;
+            transform.Translate(diff * Time.deltaTime * m_Speed );
+        }
+        
     }
+    private void OnTriggerEnter(Collider _other)
+    {
+        Target target = _other.gameObject.GetComponent<Target>();
+         
+        if (target != null)
+        {
+            
+            target.Hit(damage);
+            Destroy(gameObject);
+        }
+    }
+
 }

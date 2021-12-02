@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private float playerSpeed = 5f;
     [SerializeField] private float gravityValue = -9.81f;
-    [SerializeField] private float shootSpeed = 5f;
+    [SerializeField] private float shootSpeed = 20f;
 
     [SerializeField] private GameObject spitPrefab;
 
@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour
 
     //[SerializeField] private float m_ShootSpeed = 2f;
     //[SerializeField] private GameObject m_SpitOriginal, m_ShootPoint;
-
+    private Vector3 m_CurrentPos;
     private Vector2 movement;
     private Vector2 aim;
     private bool shoot;
@@ -30,8 +30,12 @@ public class PlayerController : MonoBehaviour
     private CharacterController controller;
     private PlayerControls playerControls;
     private PlayerInput playerInput;
+    private float health;
 
-
+    public void Hit(float damage)
+    {
+        health -= damage;
+    }
     private void Awake()
     {
         controller = GetComponent<CharacterController>();
@@ -72,6 +76,10 @@ public class PlayerController : MonoBehaviour
         controller.Move(move * Time.deltaTime * playerSpeed);
         playerVelocity.y += gravityValue * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
+        m_CurrentPos = transform.position;
+        m_CurrentPos.z = BorderPlayer(m_CurrentPos.z,50);
+        m_CurrentPos.x = BorderPlayer(m_CurrentPos.x,50);
+        transform.position = m_CurrentPos;
     }
 
     void HandleRotation()
@@ -112,6 +120,20 @@ public class PlayerController : MonoBehaviour
         Vector3 heightCorrectedPoint = new Vector3(lookPoint.x, transform.position.y, lookPoint.z);
         transform.LookAt(heightCorrectedPoint);
     }
+    private float BorderPlayer( float m_CurrentPos, float m_Range){
+        // 
+        if(m_CurrentPos > m_Range){
+            m_CurrentPos = m_Range;
+        }
+        else if(m_CurrentPos < - m_Range){
+            m_CurrentPos = -m_Range;
+        }
+        return m_CurrentPos;
+    }
+}
+
+
+
 
     private void Collect()
     {

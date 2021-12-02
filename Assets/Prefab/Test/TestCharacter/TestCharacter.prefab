@@ -108,8 +108,10 @@ GameObject:
   - component: {fileID: 5017422696843931360}
   - component: {fileID: -5373117289590767978}
   - component: {fileID: 225348132}
+  - component: {fileID: 4037596130222481767}
   - component: {fileID: 183343691}
   - component: {fileID: 8261013409830331223}
+  - component: {fileID: 7005560300241617727}
   m_Layer: 0
   m_Name: TestCharacter
   m_TagString: Untagged
@@ -190,8 +192,8 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2298943733154106824}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
+  m_IsTrigger: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 2, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -237,6 +239,19 @@ MonoBehaviour:
   m_DefaultActionMap: Controls
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &4037596130222481767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2298943733154106824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c731dd0e6ea24e8b882a424b89e951d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 10
 --- !u!143 &183343691
 CharacterController:
   m_ObjectHideFlags: 0
@@ -271,6 +286,20 @@ MonoBehaviour:
   gravityValue: -9.81
   shootSpeed: 5
   spitPrefab: {fileID: 301678319190260019, guid: fee06ed6ad0ed4afa8936f19063289ea, type: 3}
+--- !u!136 &7005560300241617727
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2298943733154106824}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
   collectParticle: {fileID: 7475794436474882187}
 --- !u!1001 &1351079800
 PrefabInstance:
