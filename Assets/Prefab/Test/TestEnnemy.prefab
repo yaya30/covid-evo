@@ -112,7 +112,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Speed: 1
   m_Player: {fileID: 0}
-  damage: 3
+  damage: 0.25
 --- !u!114 &1694848215764008274
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -125,4 +125,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c731dd0e6ea24e8b882a424b89e951d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 5
+  m_health: 10
+  healthBar: {fileID: 0}

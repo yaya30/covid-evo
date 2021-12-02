@@ -18,13 +18,14 @@ public class Ennemy : MonoBehaviour
     void Update()
     {
         m_CurrentPos = transform.position;
-        if(m_Player !=null){
+        if(m_Player != null){
             Vector3 diff = m_Player.transform.position - m_CurrentPos;
             transform.Translate(diff * Time.deltaTime * m_Speed );
             m_CurrentPos = transform.position;
         }
         
     }
+
     private void OnTriggerEnter(Collider _other)
     {
         Target target = _other.gameObject.GetComponent<Target>();

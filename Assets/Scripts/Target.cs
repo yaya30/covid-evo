@@ -5,11 +5,19 @@ using UnityEngine.SceneManagement;
 public class Target : MonoBehaviour
 {
     [SerializeField]
-    private float health;
+    private float m_health;
+
+    [SerializeField]
+    public HealthBar healthBar = null;
+
+    public float Health {
+        get { return m_health; }
+        set { m_health = value; }
+    }
 
     private void Update()
     {
-        if (health <= 0)
+        if (Health <= 0)
         {
             Destroy(gameObject);
             if (this.gameObject.tag == "Player")
@@ -21,8 +29,11 @@ public class Target : MonoBehaviour
 
     public void Hit(float damage)
     {
-        health -= damage;
+        Health -= damage;
 
-        GameObject m_Player = GameObject.FindWithTag("Player");
+        if (healthBar != null)
+        {
+            healthBar.UpdateHealthBar();
+        }
     }
 }

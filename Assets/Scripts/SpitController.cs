@@ -20,7 +20,7 @@ public class SpitController : MonoBehaviour
     {
         Target target = _other.gameObject.GetComponent<Target>();
         
-        if (target != null  )
+        if (target != null)
         {
             if(target.gameObject.tag == "ennemy"){
                 target.Hit(damage);

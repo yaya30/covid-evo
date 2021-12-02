@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float playerSpeed = 5f;
     [SerializeField] private float gravityValue = -9.81f;
     [SerializeField] private float shootSpeed = 20f;
+    [SerializeField] private float shootDelay = 0.1f;
 
     [SerializeField] private GameObject spitPrefab;
 
@@ -35,6 +36,7 @@ public class PlayerController : MonoBehaviour
     public void Hit(float damage)
     {
         health -= damage;
+        
     }
     private void Awake()
     {
@@ -63,30 +65,12 @@ public class PlayerController : MonoBehaviour
         healthBar.SetMaxHealth(maxHealth);
     }*/
 
-    // about health bar
-    public void TakeDamage()
-    {
-        // Use your own damage handling code, or this example one.
-        //health -= Mathf.Min(Random.value, health / 4f);
-        Debug.Log("etat sant� dans TakeDamage= " + health);
-        health = health -0.005f;
-        
-        healthBar.UpdateHealthBar();
-    }
-
     void Update()
     {
         HandleInput();
         HandleMovement();
         HandleRotation();
         HandleShoot();
-
-        // use space button to test healthbar
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Debug.Log("etat sant�= " + health);
-            TakeDamage();
-        }
     }
 
   
@@ -126,7 +110,7 @@ public class PlayerController : MonoBehaviour
 
     void HandleShoot()
     {
-        if (shoot)
+        if (shoot && canShoot)
         {
             AudioSource audio = GameObject.FindObjectOfType<AudioSource>();
             audio.Play();
@@ -141,7 +125,7 @@ public class PlayerController : MonoBehaviour
     IEnumerator CanShoot()
     {
         canShoot = false;
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(shootDelay);
         canShoot = true;
     }
 
