@@ -55,13 +55,41 @@ public class PlayerController : MonoBehaviour
     }
 
 
+    // init healthbar game 
+    /*void Start()
+    {
+        currentHealth = maxHealth;
+        healthBar = new HealthBar();
+        healthBar.SetMaxHealth(maxHealth);
+    }*/
+
+    // about health bar
+    public void TakeDamage()
+    {
+        // Use your own damage handling code, or this example one.
+        //health -= Mathf.Min(Random.value, health / 4f);
+        Debug.Log("etat sant� dans TakeDamage= " + health);
+        health = health -0.005f;
+        
+        healthBar.UpdateHealthBar();
+    }
+
     void Update()
     {
         HandleInput();
         HandleMovement();
         HandleRotation();
         HandleShoot();
+
+        // use space button to test healthbar
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Debug.Log("etat sant�= " + health);
+            TakeDamage();
+        }
     }
+
+  
 
     void HandleInput()
     {
