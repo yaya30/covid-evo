@@ -21,6 +21,7 @@ public class Ennemy : MonoBehaviour
         if(m_Player !=null){
             Vector3 diff = m_Player.transform.position - m_CurrentPos;
             transform.Translate(diff * Time.deltaTime * m_Speed );
+            m_CurrentPos = transform.position;
         }
         
     }
@@ -30,9 +31,7 @@ public class Ennemy : MonoBehaviour
          
         if (target != null)
         {
-            
             target.Hit(damage);
-            Destroy(gameObject);
         }
     }
 

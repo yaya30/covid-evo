@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class SpawnManager : MonoBehaviour
 {
     // Start is called before the first frame update
     public GameObject m_EnnemyTemplate;
-    private float m_Timer;
+    public int maxEnnemy = 20;
+    public float m_Timer;
     void Start()
     {
         
@@ -17,10 +19,12 @@ public class SpawnManager : MonoBehaviour
     void Update()
     {
         m_Timer += Time.deltaTime;
-        if(m_Timer > 2f){
+        if(m_Timer > 2f && maxEnnemy != 0){
             m_Timer -= 2f;
             SpawnEnnemy();
+            maxEnnemy -= 1;
         }
+        
     }
    public Vector3 RandomTransformPosition(){
        Vector3[] ennemyPosition = {

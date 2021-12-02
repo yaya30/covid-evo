@@ -96,9 +96,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b092844102b40454c907947989bc536a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  seconds: 10
+  seconds: 5
   damage: 1.1
-  collectParticle: {fileID: 7475794435124142067, guid: 0b3cf8bb47e5e498397ea0e3ab711e15, type: 3}
 --- !u!54 &-2964655694565885662
 Rigidbody:
   m_ObjectHideFlags: 0

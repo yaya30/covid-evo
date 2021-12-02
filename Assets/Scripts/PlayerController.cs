@@ -100,6 +100,8 @@ public class PlayerController : MonoBehaviour
     {
         if (shoot)
         {
+            AudioSource audio = GameObject.FindObjectOfType<AudioSource>();
+            audio.Play();
             Collect();
             GameObject spitClone = Instantiate(spitPrefab, transform.position, transform.rotation);
             Rigidbody rb = spitClone.GetComponent<Rigidbody>();
